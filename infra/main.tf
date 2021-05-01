@@ -72,7 +72,7 @@ resource "aws_rds_cluster" "default" {
   backup_retention_period = 7
   skip_final_snapshot     = true
   engine                  = "aurora-postgresql"
-  engine_version          = "10.7"
+  engine_version          = "10.12"
 
   scaling_configuration {
     auto_pause               = true
