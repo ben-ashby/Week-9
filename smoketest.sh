@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export endpoint=$(kubectl get service/tech-test-app -o json | jq '.status.loadBalancer.ingress[0].hostname' | sed -e 's/^"//' -e 's/"$//')
+export endpoint=$(kubectl get service/tech-test-app -n $1 -o json | jq '.status.loadBalancer.ingress[0].hostname' | sed -e 's/^"//' -e 's/"$//')
 echo $endpoint
 
 export returncode=$(curl -s -o /dev/null -w "%{http_code}" ${endpoint})
